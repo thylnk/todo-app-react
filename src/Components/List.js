@@ -28,7 +28,7 @@ export default function List( {listItem, removeItem, chooseItem}) {
                   <a className="removeButton" onClick = {() => removeItem(idx)} >X</a>
                 </div>
                 <div>
-                  <input type="checkbox" onChange={() => chooseItem(idx)}/>
+                  <input type="checkbox" checked = {item.isCompleted} onChange={() => chooseItem(idx)}/>
                 </div>
             </div>
           </div>
