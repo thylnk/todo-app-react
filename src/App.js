@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import List from "./Components/List";
 
 const list = [
-    {itemName: 'Must Do 1', isCompleted: false},
-    {itemName: 'Must Do 2', isCompleted: false},
+    {itemName: 'Job 1', isCompleted: true},
+    {itemName: 'Job 2', isCompleted: false},
+    {itemName: 'Job 3', isCompleted: false},
   ];
 
 function App(){
