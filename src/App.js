@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import List from "./Components/List";
 
 const list = [
-    {itemID: 1, itemName: 'Must Do 1', isCompleted: false},
-    {itemID: 2, itemName: 'Must Do 2', isCompleted: false},
+    {itemName: 'Must Do 1', isCompleted: false},
+    {itemName: 'Must Do 2', isCompleted: false},
   ];
 
 function App(){
@@ -13,7 +13,6 @@ function App(){
   // TODO: ListItem
 
   const [itemName, setItemName] = useState("");
-  // const [isCompleted, setIsCompleted] = useState(false);
   const [listItem, setListItem] = useState(list);
 
   const handleSubmit = (e) => {
@@ -22,23 +21,21 @@ function App(){
       alert("Please enter an item");
     }
     else {
-      const newItem = {itemID: listItem.length+1, itemName: itemName, isCompleted: false}
+      const newItem = {itemName: itemName, isCompleted: false}
       setListItem([...listItem, newItem]);
       setItemName("");
     }
   }
 
-  const removeItem = (id) => {
-    setListItem(
-      listItem.filter(function(item) {
-        return id !== item.itemID;
-      })
-    )
+  const removeItem = (index) => {
+    let copyItem = [...listItem];
+    copyItem.splice(index, 1);
+    setListItem(copyItem);
   }
 
-  const chooseItem = (id) => {
-    const updated = listItem.filter((item) => {
-      if (item.itemID === id) {
+  const chooseItem = (idx) => {
+    const updated = listItem.filter((item, index) => {
+      if (index === idx) {
         item.isCompleted = !item.isCompleted;
       }
       return item;

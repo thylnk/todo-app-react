@@ -15,7 +15,7 @@ export default function List( {listItem, removeItem, chooseItem}) {
   return (
     <div className="todo-list" >
       {listItem.map((item, idx) => {
-        const {itemID, itemName} = item;
+        const {itemName} = item;
         return (
           <div key={idx} className="todo-item" style={{...styles[item.isCompleted] }}>
             <div className="todo-item-name" style={{...styleText[item.isCompleted] }}>
@@ -23,13 +23,12 @@ export default function List( {listItem, removeItem, chooseItem}) {
               
             </div>
             <div className="todo-item-action">
-              {/* <i class="fas fa-check-circle"></i>
-              <i class="fas fa-minus-circle" onClick = {() => removeItem(itemID)}></i> */}
                 <div>
-                  <a className="removeButton" onClick = {() => removeItem(itemID)} >X</a>
+                  {/* eslint-disable-next-line  */}
+                  <a className="removeButton" onClick = {() => removeItem(idx)} >X</a>
                 </div>
                 <div>
-                  <input type="checkbox" onChange={() => chooseItem(itemID)}/>
+                  <input type="checkbox" onChange={() => chooseItem(idx)}/>
                 </div>
             </div>
           </div>
